@@ -1,0 +1,22 @@
+body {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: brown;
+}
+#target {
+  height:600px;
+  width:600px;
+  background-color: white;
+  box-shadow: 3px 3px 3px black;
+  background-color: #DEE8EA;
+}
+.innercircle {
+  position: absolute;
+  height: 580px;
+  width: 580px;
+  margin-left: 10px;
+  margin-top: 10px;
+  background-color: #53527C;
+  border-radius: 50%;
+}
