@@ -1,8 +1,11 @@
 body {
   display: flex;
+  height: 100vh;
+  width: 100vw;
   justify-content: space-around;
   align-items: center;
-  background-color: brown; }
+  background-image: url("../assets/seamless-cardboard.jpg");
+  background-repeat: repeat; }
 
 #target {
   height: 600px;
@@ -10,12 +13,52 @@ body {
   background-color: white;
   box-shadow: 3px 3px 3px black;
   background-color: #DEE8EA; }
-
-.innercircle {
-  position: absolute;
-  height: 580px;
-  width: 580px;
-  margin-left: 10px;
-  margin-top: 10px;
-  background-color: #53527C;
-  border-radius: 50%; }
+  #target #circle1 {
+    position: absolute;
+    height: 580px;
+    width: 580px;
+    margin-left: 10px;
+    margin-top: 10px;
+    background-color: #53527C;
+    border-radius: 50%; }
+    #target #circle1 #circle2 {
+      height: 464px;
+      width: 464px;
+      margin-top: 58px;
+      margin-left: 58px;
+      border: 2px solid #DEE8EA;
+      border-radius: 50%; }
+      #target #circle1 #circle2 #circle3 {
+        height: 348px;
+        width: 348px;
+        margin-top: 58px;
+        margin-left: 58px;
+        border: 2px solid #DEE8EA;
+        border-radius: 50%; }
+        #target #circle1 #circle2 #circle3 #circle4 {
+          height: 232px;
+          width: 232px;
+          margin-top: 58px;
+          margin-left: 58px;
+          border: 2px solid #DEE8EA;
+          border-radius: 50%; }
+          #target #circle1 #circle2 #circle3 #circle4 #circle5 {
+            height: 116px;
+            width: 116px;
+            margin-top: 58px;
+            margin-left: 58px;
+            background-color: #ECF1F3;
+            border-radius: 50%; }
+            #target #circle1 #circle2 #circle3 #circle4 #circle5 #circleX {
+              position: absolute;
+              display: flex;
+              justify-content: space-around;
+              align-items: center;
+              height: 58px;
+              width: 58px;
+              margin-top: 27px;
+              margin-left: 27px;
+              font-size: 58px;
+              color: #404568;
+              border: 2px solid #404568;
+              border-radius: 50%; }
