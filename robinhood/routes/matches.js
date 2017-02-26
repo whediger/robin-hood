@@ -10,4 +10,9 @@ router.get('/match/:id', function(req, res, next) {
   res.render('match', { matchid: matchid});
 });
 
+router.post('/newmatch', function(req, res, next){
+  console.log("hit the route");
+  res.render('entermatch');
+});
+
 module.exports = router;

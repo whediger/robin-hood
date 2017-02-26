@@ -6,4 +6,8 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'RobinHood', name:'wes' });
 });
 
+router.get('/newmatch', function(req, res, next) {
+  res.render('newmatch');
+});
+
 module.exports = router;
