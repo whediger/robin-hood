@@ -1,13 +1,27 @@
 
 exports.seed = function(knex, Promise) {
-  // Deletes ALL existing entries
-  return knex('table_name').del()
-    .then(function () {
-      // Inserts seed entries
-      return knex('table_name').insert([
-        {id: 1, colName: 'rowValue1'},
-        {id: 2, colName: 'rowValue2'},
-        {id: 3, colName: 'rowValue3'}
-      ]);
-    });
+  return knex('Games').del()
+  .then(function () {
+    return Promise.all([
+      knex('Matches')
+    ])
+  })
+  .then(function(data){
+    var joesMatch = data[0][0].MatchID;
+    var otherMatch = data[0][1].MatchID;
+    return knex('Games').insert([
+      {MatchID: joesMatch,
+        GameNumber: 1,
+        GameFinished: true},
+      {MatchID: joesMatch,
+        GameNumber: 2,
+        GameFinished: true},
+      {MatchID: joesMatch,
+        GameNumber: 3,
+        GameFinished: true},
+      {MatchID: otherMatch,
+        GameNumber: 1,
+        GameFinished: false }
+    ])
+  });
 };
