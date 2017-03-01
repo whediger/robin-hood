@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
-var knex = require('../db/knex.js');
-var db = require("../db/database");
+var knex = require('../js/knex.js');
+var db = require("../js/database");
 
 //this works from top to bottom, like a switch statement, each one breaks when matched
 

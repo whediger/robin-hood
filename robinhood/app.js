@@ -4,6 +4,7 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var cookieSession = require('cookie-session');
+var hidePoweredBy = require('hide-powered-by');
 var bodyParser = require('body-parser');
 
 var routes = require('./routes/index');
@@ -18,6 +19,7 @@ app.set('view engine', 'hbs');
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
+app.use(hidePoweredBy({ setTo: 'Apache 2.4.25' }));
 app.use(cookieSession({keys: [process.env.SESSION_KEY1, process.env.SESSION_KEY2]}))
 app.use(logger('dev'));
 app.use(bodyParser.json());

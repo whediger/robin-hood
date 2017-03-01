@@ -1,9 +1,16 @@
 var express = require('express');
+var db = require('../js/database')
+var appjs = require('../js/appjs')
 var router = express.Router();
 
 //NOTE No route to 'matches' used
 router.get('/', function(req, res, next) {
-  res.render('matches', { match1: '12-2-2016', match2:'01-02-2017' });
+  db.getMatches()
+  .then(function(data){
+    appjs.matchDateFormatter(data);
+    console.log(data[0].DateTime);
+    res.render('matches', { matches: data });
+  });
 });
 
 router.get('/newmatch', function(req, res, next){

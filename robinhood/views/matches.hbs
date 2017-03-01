@@ -4,7 +4,10 @@
 
 <h3>here are some of your matches</h3>
 
+
+
 <ul>
-  <li><a href='./matches/match/543'>{{match1}}</a></li>
-  <li>{{match2}}</li>
+  {{#each matches}}
+    <li><a href='./matches/match/{{this.MatchID}}'>{{this.DateTime}}</a></li>
+  {{/each}}
 </ul>
