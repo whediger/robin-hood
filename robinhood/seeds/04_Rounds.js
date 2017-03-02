@@ -8,32 +8,22 @@ exports.seed = function(knex, Promise) {
   })
   .then(function (data) {
     var games = data[0];
-    return knex('Rounds').insert([
-      {GameID: 1, RoundNumber: 1, FirstShotScore: 'X', SecondShotScore: 'X',
-        ThirdShotScore: 'X', FourthShotScore: '4', FifthShotScore: '4'},
-      {GameID: 1, RoundNumber: 2, FirstShotScore: 'X', SecondShotScore: 'X',
-        ThirdShotScore: 'X', FourthShotScore: '4', FifthShotScore: '4'},
-      {GameID: 1, RoundNumber: 3, FirstShotScore: 'X', SecondShotScore: 'X',
-        ThirdShotScore: 'X', FourthShotScore: '4', FifthShotScore: '4'},
-      {GameID: 1, RoundNumber: 4, FirstShotScore: 'X', SecondShotScore: 'X',
-        ThirdShotScore: 'X', FourthShotScore: '4', FifthShotScore: '4'},
-      {GameID: 2, RoundNumber: 1, FirstShotScore: 'X', SecondShotScore: 'X',
-        ThirdShotScore: 'X', FourthShotScore: '4', FifthShotScore: '4'},
-      {GameID: 2, RoundNumber: 2, FirstShotScore: 'X', SecondShotScore: 'X',
-        ThirdShotScore: 'X', FourthShotScore: '4', FifthShotScore: '4'},
-      {GameID: 2, RoundNumber: 3, FirstShotScore: 'X', SecondShotScore: 'X',
-        ThirdShotScore: 'X', FourthShotScore: '4', FifthShotScore: '4'},
-      {GameID: 2, RoundNumber: 4, FirstShotScore: 'X', SecondShotScore: 'X',
-        ThirdShotScore: 'X', FourthShotScore: '4', FifthShotScore: '4'},
-      {GameID: 3, RoundNumber: 1, FirstShotScore: 'X', SecondShotScore: 'X',
-        ThirdShotScore: 'X', FourthShotScore: '4', FifthShotScore: '4'},
-      {GameID: 3, RoundNumber: 2, FirstShotScore: 'X', SecondShotScore: 'X',
-        ThirdShotScore: 'X', FourthShotScore: '4', FifthShotScore: '4'},
-      {GameID: 3, RoundNumber: 3, FirstShotScore: 'X', SecondShotScore: 'X',
-        ThirdShotScore: 'X', FourthShotScore: '4', FifthShotScore: '4'},
-      {GameID: 3, RoundNumber: 4, FirstShotScore: 'X', SecondShotScore: 'X',
-        ThirdShotScore: 'X', FourthShotScore: '4', FifthShotScore: '4'},
-    ]);
+    var round = new Array();
+
+    for (var i = 0; i < games.length; i++) {
+      for (var r = 1; r <= 4; r++) {
+        round.push({
+                   GameID: games[i].GameID,
+              RoundNumber: r,
+           FirstShotScore: 'X',
+          SecondShotScore: 'X',
+           ThirdShotScore: 'X',
+          FourthShotScore: getRandScore(),
+           FifthShotScore: getRandScore()
+        })
+      }
+    }
+    return knex('Rounds').insert(round);
   });
 };
 
@@ -42,4 +32,8 @@ function getGameID(data, gameArrNum){
     if (i === gameArrNum)
       return data[i].GameID;
   }
+}
+
+function getRandScore() {
+  return Math.ceil(5 - (Math.random() * 3))
 }
