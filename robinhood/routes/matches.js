@@ -7,14 +7,12 @@ var router = express.Router();
 router.get('/', function(req, res, next) {
   db.getMatches()
   .then(function(data){
-    appjs.matchDateFormatter(data);
-    console.log(data[0].DateTime);
     res.render('matches', { matches: data });
   });
 });
 
 router.get('/newmatch', function(req, res, next){
-  res.render('entermatch');
+  res.render('newmatch');
 });
 
 router.post('/delete', function(req, res, next){
