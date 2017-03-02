@@ -5,7 +5,7 @@ var router = express.Router();
 
 //NOTE No route to 'matches' used
 router.get('/', function(req, res, next) {
-  db.getMatches()
+  db.getMatches(req.session.userId)
   .then(function(data){
     appjs.matchDateFormatter(data);
     res.render('matches', { matches: data });
@@ -13,6 +13,7 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/newmatch', function(req, res, next){
+  console.log(req.session.userId);
   res.render('newmatch');
 });
 

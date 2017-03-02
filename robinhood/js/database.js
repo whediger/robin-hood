@@ -5,7 +5,8 @@ module.exports = {
   getUsers: function(){
     return knex('Archers');
   },
-  getMatches: function(){
-    return knex('Matches');
+  getMatches: function(id){
+    return knex('Matches')
+      .where('ArcherID', id);
   }
 }

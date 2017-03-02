@@ -10,9 +10,10 @@ router.get('/', function(req, res, next){
   res.render('index');
 });
 
-router.get('/home', function(req, res, next){
-  console.log(req.params.id);
-  res.render('home')
+router.get('/home/:id', function(req, res, next){
+  console.log("ArcherId: " + req.session.userId);
+  req.session.userId = req.params.id;
+    res.render('home');
 });
 
 router.get('/login', function(req, res, next){
