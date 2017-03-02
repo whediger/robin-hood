@@ -13,7 +13,6 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/newmatch', function(req, res, next){
-  console.log(req.session.userId);
   res.render('newmatch');
 });
 
@@ -27,7 +26,11 @@ router.get('/edit', function(req, res, next){
 
 router.get('/match/:id', function(req, res, next) {
   var matchid = req.params.id;
-  res.render('match', { matchid: matchid});
+  db.getMatch(matchid)
+  .then(function(data){
+    console.log(data[0]);
+    res.render('match', { match: data });
+  })
 });
 
 module.exports = router;

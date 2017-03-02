@@ -2,35 +2,48 @@
 <a href="/matches">back</a>
 <a href="/matches/edit">edit</a>
 
-<h1>here is match number {{matchid}}</h1>
+<h1>here is the match number {{match.0.MatchID}}</h1>
+<h3>{{match.0.DateTime}}</h3>
+<h3>Score Keeper: {{match.0.ScoreKeeper}}</h3>
 
-<h2>game 1</h2>
-<pre>
-  5 5 5 5 4 | 24  | 0
-  X X X 5 5 | 25  | 3
-  X X 5 5 4 | 24  | 2
-  X X X X 3 | 23  | 4
-</pre>
-total score: 96
-total X's: 9
+<h2>Game 1</h2>
+<h3>Round 1: {{match.0.FirstShotScore}} | {{match.0.SecondShotScore}} | {{match.0.ThirdShotScore}} |
+  {{match.0.FourthShotScore}} | {{match.0.FifthShotScore}}</h3>
+<h3>Round 2: {{match.1.FirstShotScore}} | {{match.1.SecondShotScore}} | {{match.1.ThirdShotScore}} |
+  {{match.1.FourthShotScore}} | {{match.1.FifthShotScore}}</h3>
+<h3>Round 3: {{match.2.FirstShotScore}} | {{match.2.SecondShotScore}} | {{match.2.ThirdShotScore}} |
+  {{match.2.FourthShotScore}} | {{match.2.FifthShotScore}}</h3>
+<h3>Round 4: {{match.3.FirstShotScore}} | {{match.3.SecondShotScore}} | {{match.3.ThirdShotScore}} |
+  {{match.3.FourthShotScore}} | {{match.3.FifthShotScore}}</h3>
+  <p>game score: 96////create total value and add to object</p>
+  <p>total X's: 9</p>
 
 <h2>Game 2</h2>
-<pre>
-  5 5 5 5 4 | 24  | 0
-  X X X 5 5 | 25  | 3
-  X X 5 5 4 | 24  | 2
-  X X X X 3 | 23  | 4
-</pre>
-total score: 96
-total X's: 9
+<h3>Round 1: {{match.4.FirstShotScore}} | {{match.4.SecondShotScore}} | {{match.4.ThirdShotScore}} |
+  {{match.4.FourthShotScore}} | {{match.4.FifthShotScore}}</h3>
+<h3>Round 2: {{match.5.FirstShotScore}} | {{match.5.SecondShotScore}} | {{match.5.ThirdShotScore}} |
+  {{match.5.FourthShotScore}} | {{match.5.FifthShotScore}}</h3>
+<h3>Round 3: {{match.6.FirstShotScore}} | {{match.6.SecondShotScore}} | {{match.6.ThirdShotScore}} |
+  {{match.6.FourthShotScore}} | {{match.6.FifthShotScore}}</h3>
+<h3>Round 4: {{match.7.FirstShotScore}} | {{match.7.SecondShotScore}} | {{match.7.ThirdShotScore}} |
+  {{match.7.FourthShotScore}} | {{match.7.FifthShotScore}}</h3>
+  <p>game score: 96////create total value and add to object</p>
+  <p>total X's: 9</p>
 
 <h2>Game 3</h2>
-<pre>
-  5 5 5 5 4 | 24  | 0
-  X X X 5 5 | 25  | 3
-  X X 5 5 4 | 24  | 2
-  X X X X 3 | 23  | 4
-</pre>
+<h3>Round 1: {{match.8.FirstShotScore}} | {{match.8.SecondShotScore}} | {{match.8.ThirdShotScore}} |
+  {{match.8.FourthShotScore}} | {{match.8.FifthShotScore}}</h3>
+<h3>Round 2: {{match.8.FirstShotScore}} | {{match.8.SecondShotScore}} | {{match.8.ThirdShotScore}} |
+  {{match.8.FourthShotScore}} | {{match.8.FifthShotScore}}</h3>
+<h3>Round 3: {{match.9.FirstShotScore}} | {{match.9.SecondShotScore}} | {{match.9.ThirdShotScore}} |
+  {{match.9.FourthShotScore}} | {{match.9.FifthShotScore}}</h3>
+<h3>Round 4: {{match.10.FirstShotScore}} | {{match.10.SecondShotScore}} | {{match.10.ThirdShotScore}} |
+  {{match.10.FourthShotScore}} | {{match.10.FifthShotScore}}</h3>
+  <p>game score: 96////create total value and add to object</p>
+  <p>total X's: 9</p>
+
+
+
 total score: 96
 total X's: 9
 
