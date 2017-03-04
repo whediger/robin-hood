@@ -6,6 +6,9 @@ module.exports = {
   getUsers: function(){
     return knex('Archers');
   },
+  addUser: function(data){
+    return knex('Archers').insert(data, 'ArcherID');
+  },
   getMatches: function(id){
     return knex('Matches')
       .where('ArcherID', id);
