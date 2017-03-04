@@ -17,7 +17,7 @@ exports.seed = function(knex, Promise) {
               RoundNumber: r,
            FirstShotScore: 'X',
           SecondShotScore: 'X',
-           ThirdShotScore: 'X',
+           ThirdShotScore: getThirdShotScore(),
           FourthShotScore: getRandScore(),
            FifthShotScore: getRandScore()
         })
@@ -36,4 +36,9 @@ function getGameID(data, gameArrNum){
 
 function getRandScore() {
   return Math.ceil(5 - (Math.random() * 3))
+}
+
+function getThirdShotScore(){
+  if(Math.ceil(Math.random() * 3) == 1) return 'X';
+  else return getRandScore();
 }

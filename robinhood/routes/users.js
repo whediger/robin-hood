@@ -11,7 +11,7 @@ router.post('/newuser', function(req, res, next){
   db.addUser(req.body)
   .then(function(id){
     res.redirect('/home/' + id);
-  })
+  });
 });
 
 module.exports = router;
