@@ -28,7 +28,6 @@ router.get('/match/:id', function(req, res, next) {
   var matchid = req.params.id;
   db.getMatch(matchid)
   .then(function(data){
-    console.log(data[0]);
     res.render('match', { match: data });
   })
 });
