@@ -1,4 +1,5 @@
 var knex = require('../js/knex');
+var moment = require('moment');
 
 module.exports = {
 
@@ -16,6 +17,7 @@ module.exports = {
     .where('Matches.MatchID', '=', id)
     .then(function(match){
       var score  = {
+               date: moment(match[0].DateTime).format("dddd, MMMM Do YYYY, h:mm a"),
         scoreKeeper: "",
          game1Score: 0,
           game1XCnt: 0,
@@ -30,6 +32,7 @@ module.exports = {
       var xcount = 0;
       var gameCount = 1;
       var gameScorer = 0;
+
       for (var i = 1; i <= match.length; i++) {
         score = addScore(score, gameCount, match[i - 1].FirstShotScore);
         score = addScore(score, gameCount, match[i - 1].SecondShotScore);

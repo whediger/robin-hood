@@ -3,7 +3,6 @@ var db = require('../js/database');
 var appjs = require('../js/appjs');
 var router = express.Router();
 
-//NOTE No route to 'matches' used
 router.get('/', function(req, res, next) {
   db.getMatches(req.session.userId)
   .then(function(data){
