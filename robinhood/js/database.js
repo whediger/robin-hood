@@ -2,7 +2,9 @@ var knex = require('../js/knex');
 var moment = require('moment');
 
 module.exports = {
-
+  findUserByScreenName: function(name) {
+    return knex('Archers').where('Archers.ScreenName', '=', name).first();
+  },
   getUsers: function(){
     return knex('Archers');
   },

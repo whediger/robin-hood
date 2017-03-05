@@ -1,10 +1,11 @@
 <h1>hello new user</h1>
 
 <form action="/users/newuser" method="post">
-  <h3>hello</h3>
+  <h3>Create New User</h3>
   <label for="ScreenName">Screen Name:</label>
-  <input type="text" name="ScreenName" value="Screen Name" onclick='select(this)'>
+  <input type="text" name="ScreenName" value="Screen Name" onclick='select(this)'></br>
   <label for="Password">Password</label>
-  <input type="password" name="Password" value="xxxxxxxxxxxxx" onclick='select(this)'>
+  <input type="password" name="Password" value="xxxxxxxxxxxxx" onclick='select(this)'></br>
   <input class="button" type="submit" value="Sign up">
 </form>
+<p class="error">{{error}}</p>

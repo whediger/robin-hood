@@ -3,19 +3,15 @@ var router = express.Router();
 var knex = require('../js/knex.js');
 var db = require("../js/database");
 
-//this works from top to bottom, like a switch statement, each one breaks when matched
-
-/* GET home page. */
 router.get('/', function(req, res, next){
   res.render('index');
 });
 
-router.get('/home/:id', function(req, res, next){
-  console.log("ArcherId: " + req.session.userId);
-  req.session.userId = req.params.id;
+router.get('/home', function(req, res, next){
     res.render('home');
 });
 
+//TODO move get login to users routes
 router.get('/login', function(req, res, next){
   db.getUsers()
   .then(function(users){

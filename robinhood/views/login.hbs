@@ -4,3 +4,13 @@
 {{#each archers}}
 <p><a href="/home/{{this.ArcherID}}">Welcome {{this.ScreenName}}</a></p>
 {{/each}}
+
+<form action="/users/login" method="post">
+  <label for="ScreenName">Screen Name</label>
+  <input type="text" name="ScreenName" value="Screen Name" onclick='select(this)'></br>
+  <label for="Password">Password</label>
+  <input type="password" name="Password" value="xxxxxxxxxxx"></br>
+  <input type="submit" class="button" value="Login">
+</form>
+
+<p class="error">{{error}}</p>

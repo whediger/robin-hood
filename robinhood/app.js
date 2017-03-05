@@ -3,15 +3,18 @@ var path = require('path');
 var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
-var cookieSession = require('cookie-session');
+var session = require('cookie-session');
 var hidePoweredBy = require('hide-powered-by');
 var bodyParser = require('body-parser');
+require('dotenv').load();
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
 var matches = require('./routes/matches');
+var auth = require('./js/auth');
 
 var app = express();
+app.use(auth.passport.initialize());
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -20,7 +23,7 @@ app.set('view engine', 'hbs');
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(hidePoweredBy({ setTo: 'Apache 2.4.25' }));
-app.use(cookieSession({keys: [process.env.SESSION_KEY1, process.env.SESSION_KEY2]}))
+app.use(session({keys: [process.env.SESSION_KEY1, process.env.SESSION_KEY2]}))
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
