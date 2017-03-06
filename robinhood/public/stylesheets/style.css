@@ -1,12 +1,80 @@
 body {
-  padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-image: url('../images/lukas-neasi-65741.jpg');
+  background-size: cover;
+  background-color: #944500;
+}
+
+h1 {
+  font-size: 2em;
+  font-family: 'Diplomata SC', cursive;
+}
+h3 {
+  font-size: 1.5em;
 }
 
 a {
   color: #00B7FF;
 }
 
+header {
+  padding-top: 2vh;
+  height: 6vh;
+  background-image: url("../images/WoodPlanksDirty0057_2_S.jpg");
+  background-size: contain;
+  background-repeat: repeat-x;
+  border-bottom: ridge 4px #682D00;
+}
+
+.logo {
+  opacity: .8;
+  text-align: center;
+  color: black;
+  text-shadow: 1px 1px #DBB071;
+  text-shadow: 3px 3px 3px 3px #DFBE7F;
+}
+
 .error {
   color: red;
+}
+
+.login {
+  height: 25vh;
+  width: 25vw;
+  margin-top: 50vh;
+  margin-left: 37vw;
+  padding: 20px;
+  background-color: black;
+  opacity: .7;
+  border-radius: 30px;
+  border: ridge 3px #A2C2A0;
+}
+.login h3 {
+  font-family: 'Raleway', sans-serif;
+  font-weight: 800;
+  font-size: 1.5em;
+  margin-bottom: .5em;
+  color: #F2F8E6;
+}
+.login p {
+  font-family: 'Raleway', sans-serif;
+  font-weight: 400;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  color: #F2F8E6;
+}
+.login input[type=button] {
+  margin-right: auto;
+  border-radius: 5px;
+  background-color: blue;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 400;
+  font-size: 120%;
+  color: #F2F8E6;
+  text-decoration: none;
+}
+
+.login input[type=button]:hover {
+  cursor: pointer;
+  background-color: darkblue;
 }

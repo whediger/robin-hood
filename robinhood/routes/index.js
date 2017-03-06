@@ -1,7 +1,7 @@
-var express = require('express');
-var router = express.Router();
 var knex = require('../js/knex.js');
 var db = require("../js/database");
+var express = require('express');
+var router = express.Router();
 
 router.get('/', function(req, res, next){
   res.render('index');

@@ -1,12 +1,25 @@
-<h1>Robin Hood Archery Score Tracker</h1>
 
 
-{{#if id}}
-  <a href="/login"><p>home</p></a>
-  <a href="/logout"><p>logout</p></a>
 
-{{else}}
+<div class="login">
+  <h3 class="title">welcome</h3>
+  <p>
+    This is an app for tracking your archery skills over time and help you
+    recognize how you can improve your skills
+  </p>
+  <h3>sign in or create an account</h3>
+  <form action="index.html" method="post">
 
-  <a href="/login"><p>login</p></a>
-  <a href="/users/newuser">create account</a>
-{{/if}}
+  </form>
+  {{#if id}}
+    <input type="button" name="login" value="login">
+    <a href="/login"><p>home</p></a>
+    <input type="button" name="logout" value="logout">
+    <a href="/logout"><p>logout</p></a>
+
+  {{else}}
+
+    <input type="button" onclick="location.href='/login'" name="login" value="login">
+    <input type="button" onclick="location.href='/users/newuser'" name="createaccount" value="create account">
+  {{/if}}
+</div>
