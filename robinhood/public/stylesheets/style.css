@@ -35,36 +35,49 @@ header {
 }
 
 .error {
+  margin-top: 10px;
+  clear: both;
+  float: right;
   color: red;
 }
 
 .login {
-  height: 25vh;
+  height: 30vh;
   width: 25vw;
-  margin-top: 50vh;
-  margin-left: 37vw;
+  margin-top: 25vh;
+  margin-left: 25vw;
   padding: 20px;
   background-color: black;
-  opacity: .7;
+  opacity: .9;
   border-radius: 30px;
   border: ridge 3px #A2C2A0;
 }
 .login h3 {
   font-family: 'Raleway', sans-serif;
   font-weight: 800;
-  font-size: 1.5em;
+  font-size: 2em;
   margin-bottom: .5em;
   color: #F2F8E6;
 }
-.login p {
+.login p, .login label {
   font-family: 'Raleway', sans-serif;
   font-weight: 400;
-  margin-top: 1em;
-  margin-bottom: 1em;
   color: #F2F8E6;
 }
-.login input[type=button] {
-  margin-right: auto;
+
+.login form {
+  margin-bottom: 10px;
+  text-align: right;
+}
+.login input[type=text], input[type=password], .login p, .login label {
+  margin-top: 10px;
+}
+.login input[type=submit] {
+  margin-top: 10px;
+  float: right;
+  clear: both;
+}
+.login input[type=button], input[type=submit] {
   border-radius: 5px;
   background-color: blue;
   font-family: 'Raleway', sans-serif;
@@ -74,7 +87,7 @@ header {
   text-decoration: none;
 }
 
-.login input[type=button]:hover {
+.login input[type=button]:hover, input[type=submit]:hover {
   cursor: pointer;
   background-color: darkblue;
 }

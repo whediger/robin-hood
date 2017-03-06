@@ -25,9 +25,9 @@ router.post('/newuser', function(req, res, next){
 router.post('/login', function(req, res, next){
   auth.passport.authenticate('local', function(err, user, info){
     if (err) {
-      res.render('./login', { error: err });
+      res.render('./', { error: err });
     } else if (!user) {
-      res.redirect('./login');
+      res.redirect('./');
     } else if (user){
       req.session.userId = user.ArcherID;
       res.redirect('/home');

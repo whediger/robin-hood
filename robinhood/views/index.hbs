@@ -4,10 +4,10 @@
 <div class="login">
   <h3 class="title">welcome</h3>
   <p>
-    This is an app for tracking your archery skills over time and help you
+    This is an app for tracking your archery scores over time and help you
     recognize how you can improve your skills
   </p>
-  <h3>sign in or create an account</h3>
+  <hr>
   <form action="index.html" method="post">
 
   </form>
@@ -19,7 +19,14 @@
 
   {{else}}
 
-    <input type="button" onclick="location.href='/login'" name="login" value="login">
+    <form action="/users/login" method="post">
+      <label for="ScreenName">Screen Name</label>
+      <input type="text" name="ScreenName" value="Screen Name" onclick='select(this)'></br>
+      <label for="Password">Password</label>
+      <input type="password" name="Password" value="xxxxxxxxxxx"></br>
+      <input type="submit" class="button" value="Login">
+    </form>
     <input type="button" onclick="location.href='/users/newuser'" name="createaccount" value="create account">
   {{/if}}
+  <span class="error">{{error}}</span>
 </div>
