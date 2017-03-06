@@ -1,7 +1,11 @@
 var express = require('express');
 var db = require('../js/database');
 var appjs = require('../js/appjs');
+var auth = require('../js/auth');
+
 var router = express.Router();
+
+router.use(auth.isLoggedIn);
 
 router.get('/', function(req, res, next) {
   db.getMatches(req.session.userId)

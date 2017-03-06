@@ -3,22 +3,8 @@ var db = require('../js/database');
 var auth = require('../js/auth');
 var router = express.Router();
 
-/* GET users listing. */
 router.get('/newuser', function(req, res, next) {
   res.render('newuser');
-});
-
-router.post('/login', function(req, res, next){
-  auth.passport.authenticate('local', function(err, user, info){
-    if (err) {
-      res.render('./login', { error: err });
-    } else if (!user) {
-      res.redirect('./login');
-    } else if (user){
-      req.session.userId = user.ArcherID;
-      res.redirect('/home');
-    }
-  })(req, res, next);
 });
 
 router.post('/newuser', function(req, res, next){
@@ -34,6 +20,25 @@ router.post('/newuser', function(req, res, next){
       });
     }
   })
+});
+
+router.post('/login', function(req, res, next){
+  auth.passport.authenticate('local', function(err, user, info){
+    if (err) {
+      res.render('./login', { error: err });
+    } else if (!user) {
+      res.redirect('./login');
+    } else if (user){
+      req.session.userId = user.ArcherID;
+      res.redirect('/home');
+    }
+  })(req, res, next);
+});
+
+
+router.get('/logout', function(req, res, next){
+  req.session = null;
+  res.render('logout');
 });
 
 module.exports = router;
