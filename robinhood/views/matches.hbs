@@ -6,12 +6,13 @@
 <h3>here are some of your matches</h3>
 
 
-
-<ul>
-  {{#each matches}}
-    <li>
-      <a href='./matches/match/{{this.MatchID}}'>{{this.DateTime}}</a>
-        <a href='./matches/match/delete/{{this.MatchID}}'> delete </a>
-    </li>
-  {{/each}}
-</ul>
+<div class="matches">
+  <ul>
+    {{#each matches}}
+      <li>
+        <a href='./matches/match/{{this.MatchID}}'>{{this.DateTime}}</a>
+          <a href='./matches/match/delete/{{this.MatchID}}'> delete </a>
+      </li>
+    {{/each}}
+  </ul>
+</div>
