@@ -79,7 +79,9 @@ header {
   float: right;
   clear: both;
 }
-
+.block {
+  float: right;
+}
 input[type=button], input[type=submit] {
   margin: 5px;
   border-radius: 5px;
@@ -90,7 +92,6 @@ input[type=button], input[type=submit] {
   color: #F2F8E6;
   text-decoration: none;
 }
-
 input[type=button].deleteButton {
   background-color: red;
   float: right;

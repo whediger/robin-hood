@@ -3,12 +3,18 @@
 <div class="newmatch menu">
   <h2 class="title">New Match Info:</h2>
   <form action="/matches/newmatch" method="post">
-    <label for="DateTime">Date & Time</label>
-    <input type="datetime-local" name="DateTime" value="{{todaysdate}}"></br>
-    <label for="Location">Location</label>
-    <input type="text" name="Location"></br>
-    <label for="ScoreKeeper">Score Keeper</label>
-    <input type="text" name="ScoreKeeper" value="{{name}}"></br>
+    <div class="block">
+      <label for="DateTime">Date and Time</label>
+      <input type="datetime-local" name="DateTime" value="{{todaysdate}}">
+    </div>
+    <div class="block">
+      <label for="Location">Location</label>
+      <input type="text" name="Location">
+    </div>
+    <div class="block">
+      <label for="ScoreKeeper">Score Keeper</label>
+      <input type="text" name="ScoreKeeper" value="{{name}}"></br>
+    </div>
     <input type="submit">
   </form>
 </div>
