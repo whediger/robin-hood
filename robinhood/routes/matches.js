@@ -30,7 +30,11 @@ router.post('/newmatch', function(req, res, next){
 router.get('/delete/:id', function(req, res, next){
   db.deleteMatch(req.params.id)
   .then(function(){
-    res.redirect('matches');
+    db.getMatches(req.session.userId)
+    .then(function(data){
+      appjs.matchDateFormatter(data);
+      res.render('./matches', { matches: data });
+    });
   })
 
 });
