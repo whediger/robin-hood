@@ -1,18 +1,14 @@
-<a href="/home">Home</a>
-<a href="/logout">Logout</a>
-
-<h1>matches</h1>
-
-<h3>here are some of your matches</h3>
 
 
-<div class="matches">
+
+
+<div class="menu">
+  <h3 class="title">matches</h3>
+  <hr>
   <ul>
     {{#each matches}}
-      <li>
-        <a href='./matches/match/{{this.MatchID}}'>{{this.DateTime}}</a>
-          <a href='./matches/match/delete/{{this.MatchID}}'> delete </a>
-      </li>
+      <input type="button" onclick="location.href='/matches'" value="{{this.DateTime}}">
+      <input type="button" class="deleteButton" onclick="location.href='/matches/delete'" value="delete"></br>
     {{/each}}
   </ul>
 </div>
