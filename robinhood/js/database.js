@@ -16,54 +16,59 @@ module.exports = {
       .where('ArcherID', id);
   },
   createMatch: function(data){
+    data.DateTime = moment().utc(data.DateTime).format();
     return knex('Matches').insert(data, 'DateTime')
     then(function(datetime){
       return datetime;
     })
-
   },
   deleteMatch: function(id){
-    return true;
+    return knex('Matches').where('MatchID', '=', id).del();
   },
   getMatch: function(id){
+    //this will evaluate to nothing because if the match has not been recorded
     return knex('Rounds')
     .innerJoin('Games', 'Rounds.GameID', '=', 'Games.GameID')
     .innerJoin('Matches', 'Games.MatchID', '=', 'Matches.MatchID')
     .where('Matches.MatchID', '=', id)
     .then(function(match){
-      var score  = {
-               date: moment(match[0].DateTime).format("dddd, MMMM Do YYYY, h:mm a"),
-        scoreKeeper: "",
-         game1Score: 0,
-          game1XCnt: 0,
-         game2Score: 0,
-          game2XCnt: 0,
-         game3Score: 0,
-          game3XCnt: 0,
-         totalScore: 0,
-             xcount: 0
-      }
-      var total = 0;
-      var xcount = 0;
-      var gameCount = 1;
-      var gameScorer = 0;
+      if(match[0]){
+        var score  = {
+                 date: moment(match[0].DateTime).format("dddd, MMMM Do YYYY, h:mm a"),
+          scoreKeeper: "",
+           game1Score: 0,
+            game1XCnt: 0,
+           game2Score: 0,
+            game2XCnt: 0,
+           game3Score: 0,
+            game3XCnt: 0,
+           totalScore: 0,
+               xcount: 0
+        }
+        var total = 0;
+        var xcount = 0;
+        var gameCount = 1;
+        var gameScorer = 0;
 
-      for (var i = 1; i <= match.length; i++) {
-        score = addScore(score, gameCount, match[i - 1].FirstShotScore);
-        score = addScore(score, gameCount, match[i - 1].SecondShotScore);
-        score = addScore(score, gameCount, match[i - 1].ThirdShotScore);
-        score = addScore(score, gameCount, match[i - 1].FourthShotScore);
-        score = addScore(score, gameCount, match[i - 1].FifthShotScore);
-        if(i % 4 == 0) gameCount++;
-      }
-      match.push(score);
-      return match;
+        for (var i = 1; i <= match.length; i++) {
+          score = addScore(score, gameCount, match[i - 1].FirstShotScore);
+          score = addScore(score, gameCount, match[i - 1].SecondShotScore);
+          score = addScore(score, gameCount, match[i - 1].ThirdShotScore);
+          score = addScore(score, gameCount, match[i - 1].FourthShotScore);
+          score = addScore(score, gameCount, match[i - 1].FifthShotScore);
+          if(i % 4 == 0) gameCount++;
+        }
+        match.push(score);
+        return match;
+      } else return { err: "this match has not been recorded" }
     })
     .then(function(data){
-      knex('Archers').where('Archers.ArcherID', '=', data[1].ScoreKeeper)
-      .then(function(scoreKeeper){
-        data[12].scoreKeeper = scoreKeeper[0].ScreenName;
-      })
+      if (!data.err){
+        knex('Archers').where('Archers.ArcherID', '=', data[1].ScoreKeeper)
+        .then(function(scoreKeeper){
+          data[12].scoreKeeper = scoreKeeper[0].ScreenName;
+        })
+      }
       return data
     });
   }

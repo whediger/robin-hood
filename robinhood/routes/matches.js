@@ -28,8 +28,11 @@ router.post('/newmatch', function(req, res, next){
 })
 
 router.get('/delete/:id', function(req, res, next){
-  var temp = db.deleteMatch(req.params.id)
-  res.render('matches', { isDeleted: temp });
+  db.deleteMatch(req.params.id)
+  .then(function(){
+    res.redirect('matches');
+  })
+
 });
 
 router.get('/edit', function(req, res, next){
@@ -40,7 +43,8 @@ router.get('/match/:id', function(req, res, next) {
   var matchid = req.params.id;
   db.getMatch(matchid)
   .then(function(data){
-    res.render('match', { match: data });
+    if(data.err) res.render('editmatch');
+    else res.render('match', { match: data });
   })
 });
 
