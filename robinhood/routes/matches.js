@@ -36,7 +36,6 @@ router.get('/delete/:id', function(req, res, next){
       res.render('./matches', { matches: data });
     });
   })
-
 });
 
 router.get('/edit', function(req, res, next){

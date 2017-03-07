@@ -17,9 +17,35 @@ module.exports = {
   },
   createMatch: function(data){
     data.DateTime = moment().utc(data.DateTime).format();
-    return knex('Matches').insert(data, 'DateTime')
-    then(function(datetime){
-      return datetime;
+    return knex('Matches').insert(data).returning('MatchID')
+    .then(function(MatchID){
+      var games = new Array();
+      for(var i = 1; i <= 3; i++){
+        var game = {
+          MatchID: MatchID[0],
+          GameNumber: i,
+          GameFinished: false
+        }
+        games.push(game);
+      }
+      return knex('Games').insert(games).returning('GameID');
+    }).then(function(data){
+      var rounds = new Array();
+      for (var i = 0; i < 3; i++){
+        for (var j = 1; j <= 4; j++){
+          var round = {
+            GameID: data[i],
+            RoundNumber: j,
+            FirstShotScore: '-',
+            SecondShotScore: '-',
+            ThirdShotScore: '-',
+            FourthShotScore: '-',
+            FifthShotScore: '-'
+          }
+          rounds.push(round);
+        }
+      }
+      return knex('Rounds').insert(rounds);
     })
   },
   deleteMatch: function(id){
