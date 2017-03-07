@@ -5,10 +5,9 @@
 <div class="menu">
   <h3 class="title">matches</h3>
   <hr>
-  <ul>
-    {{#each matches}}
-      <input type="button" onclick="location.href='/matches'" value="{{this.DateTime}}">
-      <input type="button" class="deleteButton" onclick="location.href='/matches/delete'" value="delete"></br>
-    {{/each}}
-  </ul>
+  {{#each matches}}
+    <input type="button" onclick="location.href='/matches/match/{{this.MatchID}}'" value="{{this.DateTime}}">
+    <input type="button" class="deleteButton" onclick="location.href='/matches/delete/{{this.MatchID}}'" value="delete"></br>
+  {{/each}}
+  <p>{{isDeleted}}</p>
 </div>

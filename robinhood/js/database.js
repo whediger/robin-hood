@@ -15,6 +15,9 @@ module.exports = {
     return knex('Matches')
       .where('ArcherID', id);
   },
+  deleteMatch: function(id){
+    return true;
+  },
   getMatch: function(id){
     return knex('Rounds')
     .innerJoin('Games', 'Rounds.GameID', '=', 'Games.GameID')

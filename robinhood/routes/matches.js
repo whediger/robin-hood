@@ -19,8 +19,9 @@ router.get('/newmatch', function(req, res, next){
   res.render('newmatch');
 });
 
-router.post('/delete', function(req, res, next){
-  res.render('matches');
+router.get('/delete/:id', function(req, res, next){
+  var temp = db.deleteMatch(req.params.id)
+  res.render('matches', { isDeleted: temp });
 });
 
 router.get('/edit', function(req, res, next){
