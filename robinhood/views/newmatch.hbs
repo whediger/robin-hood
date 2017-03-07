@@ -1,14 +1,14 @@
-<h1>start a new match</h1>
 
 
-<h2>New Match Info:</h2>
-
-<form class="" action="matches/newmatch" method="post">
-    <label for="location">Location</label>
-    <input type="text" name="location">
-    <label for="date">Date</label>
-    <input type="date" id="datePicker" name="date" value="{{todaysdate}}">
-    <label for="scorekeeper">Score Keeper</label>
-    <input type="text" name="scorekeeper" value="{{name}}">
+<div class="newmatch menu">
+  <h2 class="title">New Match Info:</h2>
+  <form action="/matches/newmatch" method="post">
+    <label for="DateTime">Date & Time</label>
+    <input type="datetime-local" name="DateTime" value="{{todaysdate}}"></br>
+    <label for="Location">Location</label>
+    <input type="text" name="Location"></br>
+    <label for="ScoreKeeper">Score Keeper</label>
+    <input type="text" name="ScoreKeeper" value="{{name}}"></br>
     <input type="submit">
-</form>
+  </form>
+</div>

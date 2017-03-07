@@ -19,6 +19,14 @@ router.get('/newmatch', function(req, res, next){
   res.render('newmatch');
 });
 
+router.post('/newmatch', function(req, res, next){
+  req.body.ArcherID = req.session.userId;
+  db.createMatch(req.body)
+  .then(function(datetime){
+    res.render('/startmatch');
+  });
+})
+
 router.get('/delete/:id', function(req, res, next){
   var temp = db.deleteMatch(req.params.id)
   res.render('matches', { isDeleted: temp });

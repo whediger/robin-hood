@@ -67,14 +67,14 @@ header {
   color: #F2F8E6;
 }
 
-.login form {
+.login form, .newmatch form {
   margin-bottom: 10px;
   text-align: right;
 }
-.login input[type=text], input[type=password], .login p, .login label {
+.login input[type=text], input[type=password], .login p, .login label, .newmatch input {
   margin-top: 10px;
 }
-.login input[type=submit] {
+.login input[type=submit], .newmatch input[type=submit]{
   margin-top: 10px;
   float: right;
   clear: both;

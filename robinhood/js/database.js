@@ -15,6 +15,13 @@ module.exports = {
     return knex('Matches')
       .where('ArcherID', id);
   },
+  createMatch: function(data){
+    return knex('Matches').insert(data, 'DateTime')
+    then(function(datetime){
+      return datetime;
+    })
+
+  },
   deleteMatch: function(id){
     return true;
   },
