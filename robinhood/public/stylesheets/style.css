@@ -67,7 +67,7 @@ header {
   color: #F2F8E6;
 }
 
-.login form, .newmatch form {
+.login form, .newmatch form, {
   margin-bottom: 10px;
   text-align: right;
 }
@@ -93,6 +93,7 @@ input[type=button], input[type=submit] {
 
 input[type=button].deleteButton {
   background-color: red;
+  float: right;
 }
 
 input[type=button]:hover, input[type=submit]:hover {

@@ -2,13 +2,11 @@
 
 
 
-<div class="menu">
+<div class="menu matches">
   <h3 class="title">matches</h3>
   <hr>
   {{#each matches}}
     <input type="button" onclick="location.href='/matches/match/{{this.MatchID}}'" value="{{this.DateTime}}">
-    <label for="delete">{{this.MatchId}}</label>
     <input type="button" class="deleteButton" onclick="location.href='/delete/{{this.MatchID}}'" value="delete"></br>
   {{/each}}
-  <p>{{isDeleted}}</p>
 </div>
