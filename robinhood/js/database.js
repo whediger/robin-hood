@@ -90,8 +90,6 @@ module.exports = {
         if(isNaN(score.totalScore)) score.totalScore = 0;
         match.push(score);
         return match;
-        //if the match has not been started the query will return nothing
-        //so else return err and redirect to edit page.
       } else return { err: "this match has not been recorded" }
     })
     .then(function(data){
