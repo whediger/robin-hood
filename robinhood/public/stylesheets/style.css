@@ -124,3 +124,9 @@ hr {
 .gamescore {
   font-size: 1.5em;
 }
+.roundTitle {
+  color: #C77926;
+}
+.total {
+  color: #BAD3D8;
+}
