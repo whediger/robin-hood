@@ -33,7 +33,7 @@ router.get('/delete/:id', function(req, res, next){
     db.getMatches(req.session.userId)
     .then(function(data){
       appjs.matchDateFormatter(data);
-      res.render('./matches', { matches: data });
+      res.render('matches', { matches: data });
     });
   })
 });

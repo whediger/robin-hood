@@ -84,6 +84,10 @@ module.exports = {
           score = addScore(score, gameCount, match[i - 1].FifthShotScore);
           if(i % 4 == 0) gameCount++;
         }
+        if(isNaN(score.game1Score)) score.game1Score = 0;
+        if(isNaN(score.game2Score)) score.game2Score = 0;
+        if(isNaN(score.game3Score)) score.game3Score = 0;
+        if(isNaN(score.totalScore)) score.totalScore = 0;
         match.push(score);
         return match;
         //if the match has not been started the query will return nothing
